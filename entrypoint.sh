@@ -5,7 +5,7 @@ echo "################################################################"
 echo "Environment variables:"
 echo "CRON_EXPRESSION=${CRON_EXPRESSION}"
 RSYNCVARS=( $(compgen -A variable | grep "^RSYNC") )
-for RSYNCVAR in RSYNCVARS; do
+for RSYNCVAR in $RSYNCVARS; do
    echo "${RSYNCVAR}=${!RSYNCVAR}"
    echo "rsync ${!RSYNCVAR}" >> /rsync.sh
 done
