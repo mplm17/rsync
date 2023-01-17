@@ -9,8 +9,8 @@ for RSYNCVAR in $RSYNCVARS; do
    echo "${RSYNCVAR}=${!RSYNCVAR}"
    echo "rsync ${!RSYNCVAR}" >> /rsync.sh
 done
-echo 'echo "$(date) - rsync.sh finished..."' >> rsync.sh
 echo "################################################################"
+echo 'echo "$(date) - rsync.sh finished..."' >> rsync.sh
 printenv > /var/spool/cron/crontabs/root
 echo "${CRON_EXPRESSION} /rsync.sh >> /rsync.log 2>&1" >> /var/spool/cron/crontabs/root
 crontab /var/spool/cron/crontabs/root
