@@ -7,9 +7,9 @@ echo "CRON_EXPRESSION=${CRON_EXPRESSION}"
 RSYNCVARS=$(compgen -A variable | grep "^RSYNC")
 for RSYNCVAR in $RSYNCVARS; do
    echo "${RSYNCVAR}=${!RSYNCVAR}"
-   echo 'echo "Start ${RSYNCVAR} with command: rsync ${!RSYNCVAR}"' >> /rsync.sh
+   echo 'echo "Start '${RSYNCVAR}' with command: rsync '${!RSYNCVAR}'"' >> /rsync.sh
    echo "rsync ${!RSYNCVAR}" >> /rsync.sh
-   echo 'echo "${RSYNCVAR} has ended."' >> /rsync.sh
+   echo 'echo "'${RSYNCVAR}' has ended."' >> /rsync.sh
 done
 echo "################################################################"
 echo 'echo "$(date) - rsync.sh finished..."' >> rsync.sh
