@@ -4,6 +4,8 @@ echo "$(date) - Loading rsync..."
 echo "################################################################"
 echo "Environment variables:"
 echo "CRON_EXPRESSION=${CRON_EXPRESSION}"
+echo '#!/bin/bash' > rsync.sh
+echo 'echo "$(date) - rsync.sh started..."' >> rsync.sh
 RSYNCVARS=$(compgen -A variable | grep "^RSYNC")
 for RSYNCVAR in $RSYNCVARS; do
    echo "${RSYNCVAR}=${!RSYNCVAR}"
