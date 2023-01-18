@@ -9,7 +9,7 @@ echo 'echo "$(date) - rsync.sh started..."' >> rsync.sh
 RSYNCVARS=$(compgen -A variable | grep "^RSYNC")
 for RSYNCVAR in $RSYNCVARS; do
    echo "${RSYNCVAR}=${!RSYNCVAR}"
-   echo 'echo "Start $(date) - '${RSYNCVAR}' with command: rsync '${!RSYNCVAR}'"' >> /rsync.sh
+   echo 'echo "$(date) - Start '${RSYNCVAR}' with command: rsync '${!RSYNCVAR}'"' >> /rsync.sh
    echo "rsync ${!RSYNCVAR}" >> /rsync.sh
    echo 'echo "$(date) - '${RSYNCVAR}' has ended."' >> /rsync.sh
 done
